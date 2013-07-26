@@ -10,21 +10,22 @@ name = 'charge'
 if not os.path.exists(full % name):
   name = 'energy'
 
-with open(status) as s, open(full % name) as f, open(now % name) as n:
-    charge = float(n.read()) / float(f.read())
-    status = s.read().rstrip()
-    if status != 'Charging':
-      scolor = '#ff0000'
-    else:
-      scolor = '#0000ff'
+if os.path.exists(full % name):
+  with open(status) as s, open(full % name) as f, open(now % name) as n:
+      charge = float(n.read()) / float(f.read())
+      status = s.read().rstrip()
+      if status != 'Charging':
+        scolor = '#ff0000'
+      else:
+        scolor = '#0000ff'
 
-    red = 255
-    green = 255
-    if charge > 0.5:
-      red = int(2 * (1-charge)*255)
-    else:
-      green = int(2*charge*255)
+      red = 255
+      green = 255
+      if charge > 0.5:
+        red = int(2 * (1-charge)*255)
+      else:
+        green = int(2*charge*255)
 
-    ccolor = '#%2x%2x00' % (red, green)
+      ccolor = '#%2x%2x00' % (red, green)
 
-    print '<fc=%s>(</fc><fc=%s>%d%%</fc><fc=%s>)</fc>' % (scolor, ccolor, charge * 100, scolor)
+      print '<fc=%s>(</fc><fc=%s>%d%%</fc><fc=%s>)</fc>' % (scolor, ccolor, charge * 100, scolor)
