@@ -26,6 +26,6 @@ if os.path.exists(full % name):
       else:
         green = int(2*charge*255)
 
-      ccolor = '#%2x%2x00' % (red, green)
+      ccolor = '#%02x%02x00' % (red, green)
 
       print '<fc=%s>(</fc><fc=%s>%d%%</fc><fc=%s>)</fc>' % (scolor, ccolor, charge * 100, scolor)
