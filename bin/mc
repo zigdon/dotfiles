@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+MOSH_IP="$(host -cIN "$1" | cut -d' ' -f4 | tail -1)"
+
+MOSH_CONNECT_INFO="$(ssh -t "$1" mosh-server new -c 256 | grep "MOSH CONNECT" | tr -d '\r' | cut -d\  -f3,4)"
+read MOSH_PORT MOSH_KEY <<<"$MOSH_CONNECT_INFO"
+
+MOSH_KEY="$MOSH_KEY" exec mosh-client "$MOSH_IP" "$MOSH_PORT"
+

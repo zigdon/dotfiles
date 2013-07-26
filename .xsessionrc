@@ -1,0 +1,47 @@
+#/bin/bash
+
+# set the default cursor
+xsetroot -cursor_name left_ptr
+
+if [ -f $HOME/.Xdefaults ]; then
+  xrdb -merge $HOME/.Xdefaults
+fi
+
+xsetroot -solid black
+# set background
+if [ -f $HOME/.fehbg ]; then
+  eval $(cat $HOME/.fehbg)
+fi
+
+# ssh agent
+eval `/usr/bin/ssh-agent`
+
+# tray icons
+trayer --edge top --align right --SetDockType true --SetPartialStrut false \
+ --expand true --width 10 --transparent true --alpha 0 --tint 0x000000 --height 17 &
+
+if [ -x /usr/bin/nm-applet ] ; then
+   /usr/bin/nm-applet --sm-disable &
+fi
+
+if [ -x /usr/bin/bluetooth-applet ] ; then
+   /usr/bin/bluetooth-applet &
+fi
+
+if [ -x /usr/bin/volti ] ; then
+   /usr/bin/volti &
+fi
+
+if [ -x /usr/bin/gnome-volume-control-applet ] ; then
+   /usr/bin/gnome-volume-control-applet &
+fi
+
+if [ -x /usr/bin/gnome-power-manager ] ; then
+   sleep 3
+   /usr/bin/gnome-power-manager &
+fi
+
+if [ -x /usr/bin/xautolock ] ; then
+  /usr/bin/xautolock -time 5 -locker "gnome-screensaver-command -l" -notify 30 \
+     -notifier "notify-send -t 5000 -i gtk-dialog-info 'Locking in 30 seconds'" &
+fi

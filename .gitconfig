@@ -1,0 +1,15 @@
+[user]
+	email = zigdon@google.com
+	name = Dan Boger
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+
+[push]
+	default = simple
+
+[core]
+    excludesfile = ~/.gitignore
