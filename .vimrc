@@ -114,9 +114,17 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " put all autocmds here, to avoid repeated invocations
 
-augroup vimrc
+if !exists("autocommands_loaded")
   " Automatically reload .vimrc when it is saved
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+  " Allow for highlighting columns beyond some threshold:
+  highlight OverLength ctermfg=red guifg=red
+  autocmd FileType python
+      \ setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+      \ | setlocal omnifunc=pythoncomplete#Complete
+      \ | match OverLength /\%>80v.\+/
+
   " Strip trailing whitespace
   autocmd BufWrite *.py :call DeleteTrailingWS()
   " return to last edit position when opening files
@@ -132,4 +140,4 @@ augroup vimrc
   " prevents this from happening
   autocmd InsertLeave * set nopaste
   let autocommands_loaded = 1
-augroup END
+endif
