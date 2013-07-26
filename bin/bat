@@ -12,7 +12,7 @@ if not os.path.exists(full % name):
 
 if os.path.exists(full % name):
     with open(status) as s, open(full % name) as f, open(now % name) as n:
-        charge = float(n.read()) / float(f.read())
+      charge = float(n.read()) / float(f.read())
       status = s.read().rstrip()
       if status != 'Charging':
           scolor = '#ff0000'
