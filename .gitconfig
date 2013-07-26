@@ -1,6 +1,8 @@
 [user]
-	email = zigdon@google.com
 	name = Dan Boger
+
+[rerere]
+	enabled = 1
 
 [color]
     branch = auto

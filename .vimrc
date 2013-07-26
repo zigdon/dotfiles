@@ -2,7 +2,7 @@ if filereadable($HOME . "/.dotfiles/vimrc")
   source $HOME/.dotfiles/vimrc
 endif
 
-" UTF-8 is the future
+" UTF-8 is now
 set encoding=utf8
 
 " Default to unix EOLs, but handle others gracefully
@@ -11,9 +11,14 @@ set ffs=unix,dos,mac
 " Don't try to redraw in the middle of a macro
 set lazyredraw
 
+" 256 colors and syntax highlighting
+set t_Co=256
+
 " Color scheme
 set bg=dark
 syntax on
+
+set ruler
 
 " Have the mouse work
 set mouse=a
@@ -22,6 +27,7 @@ set mouse=a
 " 'expandtab'.  This way you will always insert spaces.  The
 " formatting will never be messed up when 'tabstop' is changed.
 set tabstop=4
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
@@ -108,7 +114,7 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " put all autocmds here, to avoid repeated invocations
 
-if !exists("autocommands_loaded")
+augroup vimrc
   " Automatically reload .vimrc when it is saved
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
   " Strip trailing whitespace
@@ -126,7 +132,4 @@ if !exists("autocommands_loaded")
   " prevents this from happening
   autocmd InsertLeave * set nopaste
   let autocommands_loaded = 1
-endif
-
-
-
+augroup END
