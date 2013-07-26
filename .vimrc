@@ -35,6 +35,7 @@ set ignorecase smartcase
 set matchpairs+=<:>
 set foldmethod=indent
 set foldcolumn=5
+set modeline
 
 " Ignore compiled files when completing paths
 set wildignore=*.o,*~,*.pyc,*.pyo,*.class,*.hi
