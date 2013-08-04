@@ -4,6 +4,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
 import XMonad.Prompt
 import XMonad.Prompt.AppendFile
 import XMonad.Util.Dmenu
@@ -42,12 +43,14 @@ myManageHook = composeAll
     , isFullscreen --> doFullFloat
     ]
 
+myLayout = avoidStruts $ smartBorders $ ResizableTall 1 (3/100) (2/3) [] ||| Full
+
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobar.rc"
     xmonad $ defaultConfig
         { manageHook = myManageHook <+> manageDocks <+> namedScratchpadManageHook scratchpads <+>
             (fmap not isDialog --> doF avoidMaster) <+> manageHook defaultConfig
-        , layoutHook = avoidStruts  $  smartBorders  $  layoutHook defaultConfig
+        , layoutHook = myLayout
         , handleEventHook = fullscreenEventHook
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
@@ -58,6 +61,8 @@ main = do
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")
         , ((controlMask, xK_Print), spawn "notify-send 'Select window'; sleep 0.2; scrot -s; notify-send 'screenshot captured'")
+        , ((mod4Mask, xK_a), sendMessage MirrorShrink)
+        , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
         , ((mod4Mask .|. shiftMask, xK_q), quitWithWarning)
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
