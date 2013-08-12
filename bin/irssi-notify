@@ -14,7 +14,7 @@ fi
 
 if [[ "x$2" != "x-d" ]]; then
   echo forking...
-  ( $0 $HOST -d < /dev/null > /dev/null 2>&1 & )
+  ( nohup $0 $HOST -d < /dev/null > /dev/null 2>&1 & )
   exit
 fi
 
