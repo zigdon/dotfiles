@@ -20,7 +20,7 @@ fi
 
 while sleep 1; do
   ssh $HOST tail -n0 --follow=name -f .irssi/fnotify |
-    while read -r ; do
-      notify-send -t 10 "$REPLY"
+    while read -r CHAN LINE ; do
+      notify-send -t 10 "$CHAN": "$LINE"
     done
 done
