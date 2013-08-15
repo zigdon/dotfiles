@@ -60,7 +60,7 @@ main = do
         , terminal = "pterm"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")
-        , ((controlMask, xK_Print), spawn "notify-send 'Select window'; sleep 0.2; scrot -s; notify-send 'screenshot captured'")
+        , ((controlMask, xK_Print), spawn "/usr/bin/gnome-screenshot -i")
         , ((mod4Mask, xK_a), sendMessage MirrorShrink)
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
@@ -71,7 +71,7 @@ main = do
         , ((0, xF86XK_AudioRaiseVolume), spawn "/usr/bin/amixer set Master 2dB+")
         , ((0, xF86XK_AudioMute), spawn "/usr/bin/amixer set Master toggle")
         , ((0, xF86XK_Launch1), spawn "/usr/bin/sudo /usr/sbin/pm-suspend-hybrid & /usr/bin/gnome-screensaver-command -l")
-        , ((0, xK_Print), spawn "scrot; notify-send 'screenshot captured'")
+        , ((0, xK_Print), spawn "/usr/bin/gnome-screenshot; notify-send 'screenshot captured'")
         , ((mod4Mask .|. controlMask, xK_n), do
                      spawn ("date>>"++"$HOME/Documents/notes.txt")
                      appendFilePrompt defaultXPConfig "/home/zigdon/Documents/notes.txt")
