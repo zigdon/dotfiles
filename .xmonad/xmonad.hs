@@ -54,7 +54,7 @@ main = do
         , handleEventHook = fullscreenEventHook
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
+                        , ppTitle = xmobarColor "green" "" . shorten 100
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         , terminal = "pterm"
