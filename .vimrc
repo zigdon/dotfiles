@@ -110,6 +110,21 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 
+function s:DiffInit()
+  " Spread the window sizes equally
+  wincmd =
+  " Vim starts in first window (old file), move to next window (new file)
+  wincmd w
+  " Move to first change (gg = start of file, ]c = next diff, [c = prev diff)
+  normal gg]c[c
+endfunction
+if &diff
+  " Windows aren't ready when .vimrc is read/executed, delay until VimEnter
+  augroup diff_init
+    autocmd VimEnter * call <SID>DiffInit()
+  augroup end
+endif
+
 " AUTOCMDs
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " put all autocmds here, to avoid repeated invocations
