@@ -43,6 +43,10 @@ if [[ -f ~/.bash_aliases ]]; then
   . ~/.bash_aliases
 fi
 
+if [[ -f ~/.bash_environment ]]; then
+  . ~/.bash_environment
+fi
+
 # if it already exists, and now already set, use the existing ssh-agent
 if [[ -z "$SSH_AGENT_PID" && -f ~/.ssh/agent.$HOST ]]; then
   echo Sourcing agent.$HOST
