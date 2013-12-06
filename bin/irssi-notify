@@ -2,6 +2,7 @@
 
 HOST=$1
 
+cd $HOME
 if [[ -z $HOST ]]; then
   echo Usage: $0 hostname
   exit 1
@@ -21,6 +22,10 @@ fi
 while sleep 1; do
   ssh $HOST tail -n0 --follow=name -f .irssi/fnotify |
     while read -r CHAN LINE ; do
-      notify-send -t 10 "$CHAN": "$LINE"
+      if [[ -f $HOME/.silence ]]; then
+        notify-send -t 10 "..."
+      else
+        notify-send -t 10 "$CHAN": "$LINE"
+      fi
     done
 done
