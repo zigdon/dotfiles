@@ -56,7 +56,7 @@ main = do
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 100
                         }
-        , modMask = mod4Mask     -- Rebind Mod to the Windows key
+        , modMask = mod3Mask     -- Rebind Mod to the right alt key (mod3, win=mod4)
         , terminal = "pterm"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")

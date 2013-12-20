@@ -13,6 +13,10 @@ if [ -f $HOME/.fehbg ]; then
   eval $(cat $HOME/.fehbg)
 fi
 
+# make right-alt mod3
+xmodmap -e 'remove mod1 = Alt_R'
+xmodmap -e 'add mod3 = Alt_R'
+
 # ssh agent
 eval `/usr/bin/ssh-agent`
 
