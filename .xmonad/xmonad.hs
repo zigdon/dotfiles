@@ -11,6 +11,7 @@ import XMonad.Util.Dmenu
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.NamedScratchpad
+import XMonad.Hooks.UrgencyHook
 
 import System.Exit
 import System.IO
@@ -47,7 +48,7 @@ myLayout = avoidStruts $ smartBorders $ ResizableTall 1 (3/100) (2/3) [] ||| Ful
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobar.rc"
-    xmonad $ defaultConfig
+    xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
         { manageHook = myManageHook <+> manageDocks <+> namedScratchpadManageHook scratchpads <+>
             (fmap not isDialog --> doF avoidMaster) <+> manageHook defaultConfig
         , layoutHook = myLayout
@@ -62,6 +63,7 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")
         , ((mod4Mask, xK_a), sendMessage MirrorShrink) -- adjust window height
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
+        , ((mod4Mask, xK_g), focusUrgent)
         , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
         , ((mod4Mask .|. shiftMask, xK_q), quitWithWarning)
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
