@@ -57,7 +57,7 @@ main = do
                         , ppTitle = xmobarColor "green" "" . shorten 100
                         }
         , modMask = mod4Mask     -- Rebind Mod to the win key
-        , terminal = "pterm"
+        , terminal = "terminator"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")
         , ((mod4Mask, xK_a), sendMessage MirrorShrink) -- adjust window height
