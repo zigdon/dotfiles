@@ -39,6 +39,11 @@ setopt rm_star_wait         ## Force a pause before allowing an answer on rm *
 setopt transient_rprompt    ## Remove the right-side prompt if the cursor comes close
 unsetopt nomatch            ## Pass unmatched wildcards as arguments
 
+## let's try vi mode
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 if [[ -f ~/.bash_aliases ]]; then
   . ~/.bash_aliases
 fi
