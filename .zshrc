@@ -110,6 +110,7 @@ RPROMPT='[$(vcs_info_wrapper)${YELLOW}%d${NORMAL}]'
 
 # shortcut fuctions
 function pyhelp () { python -c "help($*)" }
+function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }
 
 if [[ -f ~/.dotfiles/zshrc ]]; then
   . ~/.dotfiles/zshrc
