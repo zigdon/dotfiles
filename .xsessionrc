@@ -52,7 +52,7 @@ if [ -x /usr/bin/xautolock ] ; then
 fi
 
 if [ -x /usr/bin/terminator ] ; then
-  /usr/bin/terminator
+  /usr/bin/terminator &
 else
-  xterm
+  xterm &
 fi
