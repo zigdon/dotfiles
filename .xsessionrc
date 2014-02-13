@@ -50,3 +50,9 @@ if [ -x /usr/bin/xautolock ] ; then
      -notifier "notify-send -t 5000 -i gtk-dialog-info 'Locking in 30 seconds'" \
      -detectsleep &
 fi
+
+if [ -x /usr/bin/terminator ] ; then
+  /usr/bin/terminator
+else
+  xterm
+fi
