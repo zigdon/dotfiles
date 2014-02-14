@@ -4,7 +4,7 @@ echo << EOF
 This should have already been done in ~:
 
 git init
-git remote add github https://github.com/zigdon/dotfiles.git
+git remote add github git@github.com:zigdon/dotfiles.git
 git fetch github HEAD
 git reset --hard FETCH_HEAD
 EOF
