@@ -28,3 +28,7 @@ google-chrome > /dev/null 2>&1 &
 
 echo put the new public key in gist
 cat ~/.ssh/id_dsa.pub
+
+git config --global user.name "Dan Boger"
+git config --global user.email dan@peeron.com
+
