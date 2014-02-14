@@ -71,7 +71,7 @@ main = do
         , ((0, xF86XK_AudioLowerVolume), spawn "/usr/bin/amixer set Master 2dB-") -- adjust volume
         , ((0, xF86XK_AudioRaiseVolume), spawn "/usr/bin/amixer set Master 2dB+")
         , ((0, xF86XK_AudioMute), spawn "/usr/bin/amixer set Master toggle")
-        , ((0, xF86XK_Launch1), spawn "/usr/bin/sudo /usr/sbin/pm-suspend-hybrid & /usr/bin/gnome-screensaver-command -l") -- laptop blue button
+        , ((0, xF86XK_Launch1), spawn "$HOME/bin/suspend") -- laptop blue button
         , ((0, xK_Print), spawn "/usr/bin/gnome-screenshot; notify-send 'screenshot captured'") -- screenshots
         , ((controlMask, xK_Print), spawn "/usr/bin/gnome-screenshot -i")
         , ((mod4Mask .|. controlMask, xK_n), do -- quick note taking
