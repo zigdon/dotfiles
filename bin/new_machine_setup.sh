@@ -1,5 +1,14 @@
 #!/bin/bash -x
 
+echo << EOF
+This should have already been done in ~:
+
+git init
+git remote add github https://github.com/zigdon/dotfiles.git
+git fetch github HEAD
+git reset --hard FETCH_HEAD
+EOF
+
 sudo apt-get update
 sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools
 
@@ -17,13 +26,5 @@ ssh-keygen -t dsa
 echo Create work and personal profiles
 google-chrome > /dev/null 2>&1 &
 
-echo Add the following key to your github profile
-cat .ssh/id_dsa.pub
-
-echo Hit enter to continue, and to OVERWRITE LOCAL DOTFILES
-read
-
-git init
-git remote add github git@github.com:zigdon/dotfiles.git
-git fetch github HEAD
-git reset --hard FETCH_HEAD
+echo put the new public key in gist
+cat ~/.ssh/id_dsa.pub
