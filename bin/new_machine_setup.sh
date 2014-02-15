@@ -10,7 +10,7 @@ git reset --hard FETCH_HEAD
 EOF
 
 sudo apt-get update
-sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools
+sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun
 
 echo Pairing phone BT
 bluetooth-wizard
