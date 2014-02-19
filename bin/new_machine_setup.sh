@@ -9,14 +9,15 @@ git fetch github HEAD
 git reset --hard FETCH_HEAD
 EOF
 
-sudo apt-get update
-sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun
-
 echo Pairing phone BT
 bluetooth-wizard
 
-echo Setting up fetchotp
-fetchotp
+sudo apt-get update
+sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun
+
+if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
+  ~/.dotfiles/new_machine_setup.sh
+fi
 
 echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
