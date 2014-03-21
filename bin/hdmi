@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+import os
+import subprocess
+
+hdmi_path = '/sys/class/drm/card0/card0-HDMI-A-1/status'
+location = 'above'
+
+if os.path.exists(hdmi_path):
+  with open(hdmi_path) as f:
+    connected = f.read()
+
+  if 'disconnected' in connected:
+    print 'HDMI not detected, disabling.'
+    subprocess.call(['xrandr', '--output', 'HDMI1', '--off'])
+  else:
+    print 'HDMI detected, setting to display %s.' % location
+    subprocess.call(['xrandr', '--output', 'HDMI1',
+                   '--auto', '--%s' % location, 'LVDS1'])
+else:
+  print "Couldn't find hdmi status: %s" % hdmi_path
+
