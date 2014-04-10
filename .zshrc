@@ -53,10 +53,10 @@ if [[ -f ~/.bash_environment ]]; then
 fi
 
 # if it already exists, and now already set, use the existing ssh-agent
-if [[ -z "$SSH_AGENT_PID" && -f ~/.ssh/agent.$HOST ]]; then
-  echo Sourcing agent.$HOST
-  . ~/.ssh/agent.$HOST
-fi
+#if [[ -z "$SSH_AGENT_PID" && -f ~/.ssh/agent.$HOST ]]; then
+#  echo Sourcing agent.$HOST
+#  . ~/.ssh/agent.$HOST
+#fi
 
 # automatically log out of a console vterm after 10 minutes of inactivity
 if test -z "$DISPLAY"; then
