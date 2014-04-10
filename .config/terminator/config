@@ -6,8 +6,10 @@
   [[default]]
     use_system_font = False
     font = DejaVu Sans Mono 9
-    allow_bold = False
+    foreground_color = "#bbbbbb"
     show_titlebar = False
+    copy_on_selection = True
+    allow_bold = False
 [layouts]
   [[default]]
     [[[child1]]]
