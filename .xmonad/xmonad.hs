@@ -5,6 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.AppendFile
 import XMonad.Util.Dmenu
@@ -44,7 +45,9 @@ myManageHook = composeAll
     , isFullscreen --> doFullFloat
     ]
 
-myLayout = avoidStruts $ smartBorders $ ResizableTall 1 (3/100) (2/3) [] ||| Full
+myResizable = ResizableTall 1 (3/100) (2/3) []
+myThree = ThreeCol 1 (3/100) (1/2)
+myLayout = avoidStruts $ smartBorders $ myResizable ||| Full ||| myThree
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobar.rc"
