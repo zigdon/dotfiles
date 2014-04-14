@@ -46,7 +46,13 @@ if [ -x /usr/bin/gnome-power-manager ] ; then
 fi
 
 if [ -x /usr/bin/xautolock ] ; then
-  /usr/bin/xautolock -time 5 -locker "gnome-screensaver-command -l" -notify 30 \
-     -notifier "notify-send -t 5000 -i gtk-dialog-info 'Locking in 30 seconds'" \
+  /usr/bin/xautolock -time 5 -locker "gnome-screensaver-command -l" -notify 10 \
+     -notifier "xset s activate" \
      -detectsleep &
+fi
+
+if [ -x /usr/bin/terminator ] ; then
+  /usr/bin/terminator &
+else
+  xterm &
 fi

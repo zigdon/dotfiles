@@ -1,0 +1,10 @@
+#!/bin/sh
+
+/usr/bin/gnome-screensaver-command -l
+sleep 1
+
+if [[ -n "$1" ]]; then
+  dbus-send --print-reply --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Hibernate
+else
+  dbus-send --print-reply --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+fi

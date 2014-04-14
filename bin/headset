@@ -1,0 +1,16 @@
+#!/bin/bash
+
+MAC_ADD="00:18:6B:44:B3:2B"
+
+MAC_ADD="dev_${MAC_ADD//:/_}"
+BT_ADAPTER=`dbus-send --system --print-reply --dest=org.bluez / \
+org.bluez.Manager.DefaultAdapter|awk '/object path/ {print $3}'`
+
+BT_ADAPTER="${BT_ADAPTER//\"/}/$MAC_ADD"
+echo "Connecting to $BT_ADAPTER..."
+
+if [ "$1" == "off" ]; then
+    dbus-send --print-reply --system --dest=org.bluez $BT_ADAPTER org.bluez.AudioSink.Disconnect
+else
+    dbus-send --print-reply --system --dest=org.bluez $BT_ADAPTER org.bluez.AudioSink.Connect
+fi
