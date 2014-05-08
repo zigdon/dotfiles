@@ -1,19 +1,20 @@
 #!/bin/bash
 
+OUTPUT="notify-send -t 10000"
+REQUIRED=$HOME/.ssh/id_dsa
+SRCPATH=$HOME/Pictures
+DESTHOST=carabiner.peeron.com
+DESTPATH=Dropbox/Public/Screenshots
+
 FILE=$1
 if [[ -z $FILE ]]; then
   CLIP=$(xclip -o)
   if ( echo $CLIP | grep -q / ); then
-    FILE=$CLIP
+    FILE="$CLIP"
   else
-    FILE=$HOME/Pictures/$CLIP
+    FILE="$SRCPATH/$CLIP"
   fi
 fi
-
-OUTPUT="notify-send -t 10000"
-REQUIRED=$HOME/.ssh/id_dsa
-DESTHOST=carabiner.peeron.com
-DESTPATH=Dropbox/Public/Screenshots
 
 if ! ( ssh-add -l | grep -q $REQUIRED ); then
   if [[ -n $TERM ]]; then
@@ -26,9 +27,12 @@ if ! ( ssh-add -l | grep -q $REQUIRED ); then
   fi
 fi
 
-if [[ ! -r $FILE ]]; then
-  $OUTPUT "$FILE not found."
-  exit 1
+if [[ ! -r "$FILE" ]]; then
+  FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | cut -c 40-)"
+  if [[ ! -r "$FILE" ]]; then
+    $OUTPUT "$FILE not found."
+    exit 1
+  fi
 fi
 
 if ! ( echo ${FILE: -3} | grep -Eq '^(png|jpg|gif)$' ); then
@@ -36,9 +40,9 @@ if ! ( echo ${FILE: -3} | grep -Eq '^(png|jpg|gif)$' ); then
   exit 1
 fi
 
-scp $FILE $DESTHOST:$DESTPATH
-URL=$(ssh $DESTHOST dropbox puburl $DESTPATH/${FILE##*/})
-echo $FILE $URL >> $HOME/tmp/urls.txt
+scp "$FILE" $DESTHOST:$DESTPATH
+URL=$(ssh $DESTHOST dropbox puburl \"$DESTPATH/${FILE##*/}\")
+echo \"$FILE\" $URL >> $HOME/tmp/urls.txt
 
 echo $URL | xclip
 $OUTPUT "$URL"
