@@ -70,6 +70,7 @@ main = do
         , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
         , ((mod4Mask .|. shiftMask, xK_q), quitWithWarning)
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
+        , ((mod4Mask, xK_u), spawn "$HOME/bin/puburl.sh")
         , ((mod4Mask, xK_b), sendMessage ToggleStruts) -- toggle xmobar
         , ((mod4Mask .|. controlMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 1") -- enable touchpad
         , ((mod4Mask .|. shiftMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 0") -- disable touchpad
