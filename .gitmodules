@@ -1,6 +1,9 @@
-[submodule ".vim/bundles/vim-gitgutter"]
-	path = .vim/bundles/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/bundles/vim-easymotion"]
-	path = .vim/bundles/vim-easymotion
+[submodule "vim_bundles/vim-easymotion"]
+	path = vim_bundles/vim-easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "vim_bundles/vim-gitgutter"]
+	path = vim_bundles/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim_bundles/tabular"]
+	path = vim_bundles/tabular
+    url = git://github.com/godlygeek/tabular.git
