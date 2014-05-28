@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# enable utf8 mouse mode
+perl -E ' print "\e[?1005h\e[?1002h" '
+
 MOSH_IP="$(host -cIN "$1" | cut -d' ' -f4 | tail -1)"
 
 MOSH_CONNECT_INFO="$(ssh -t "$1" mosh-server new -c 256 | grep "MOSH CONNECT" | tr -d '\r' | cut -d\  -f3,4)"
