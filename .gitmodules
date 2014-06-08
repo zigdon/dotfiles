@@ -1,9 +1,12 @@
-[submodule "vim_bundles/vim-easymotion"]
-	path = vim_bundles/vim-easymotion
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/vim-easymotion"]
+	path = .vim/bundle/vim-easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule "vim_bundles/vim-gitgutter"]
-	path = vim_bundles/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
-[submodule "vim_bundles/tabular"]
-	path = vim_bundles/tabular
-    url = git://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/vim-syntastic"]
+	path = .vim/bundle/vim-syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
