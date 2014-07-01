@@ -47,7 +47,7 @@ myManageHook = composeAll
 
 myResizable = ResizableTall 1 (3/100) (2/3) []
 myThree = ThreeCol 1 (3/100) (1/2)
-myLayout = avoidStruts $ smartBorders $ myResizable ||| Full ||| myThree
+myLayout = avoidStruts $ smartBorders $ myResizable ||| noBorders Full ||| myThree
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobar.rc"
