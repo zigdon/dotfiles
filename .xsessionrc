@@ -56,3 +56,7 @@ if [ -x /usr/bin/terminator ] ; then
 else
   xterm &
 fi
+
+if [ -x $HOME/.dotfiles/xsessionrc ]; then
+  . $HOME/.dotfiles/xsessionrc
+fi
