@@ -35,7 +35,7 @@ if os.path.exists(full % name):
                                          'ccolor': ccolor,
                                          'percent': charge * 100}
 
-      if charge < 0.05:
+      if status != 'Charging' and charge < 0.05:
           subprocess.call(['notify-send',
                            '-u', 'critical', '-t', '5000',
                            "Battery Low",
