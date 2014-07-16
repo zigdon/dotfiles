@@ -28,7 +28,7 @@ if ! ( ssh-add -l | grep -q $REQUIRED ); then
 fi
 
 if [[ ! -r "$FILE" ]]; then
-  FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | cut -c 40-)"
+  FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | cut -c 42-)"
   if [[ ! -r "$FILE" ]]; then
     $OUTPUT "$FILE not found."
     exit 1
