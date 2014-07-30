@@ -5,12 +5,14 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.AppendFile
 import XMonad.Util.Dmenu
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.NamedScratchpad
+import XMonad.Hooks.UrgencyHook
 
 import System.Exit
 import System.IO
@@ -43,11 +45,13 @@ myManageHook = composeAll
     , isFullscreen --> doFullFloat
     ]
 
-myLayout = avoidStruts $ smartBorders $ ResizableTall 1 (3/100) (2/3) [] ||| Full
+myResizable = ResizableTall 1 (3/100) (2/3) []
+myThree = ThreeCol 1 (3/100) (1/2)
+myLayout = avoidStruts $ smartBorders $ myResizable ||| noBorders Full ||| myThree
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobar.rc"
-    xmonad $ defaultConfig
+    xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
         { manageHook = myManageHook <+> manageDocks <+> namedScratchpadManageHook scratchpads <+>
             (fmap not isDialog --> doF avoidMaster) <+> manageHook defaultConfig
         , layoutHook = myLayout
@@ -56,20 +60,24 @@ main = do
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 100
                         }
-        , modMask = mod4Mask     -- Rebind Mod to the Windows key
-        , terminal = "pterm"
+        , modMask = mod4Mask     -- Rebind Mod to the win key
+        , terminal = "terminator"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "/usr/bin/gnome-screensaver-command -l")
         , ((mod4Mask, xK_a), sendMessage MirrorShrink) -- adjust window height
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
+        , ((mod4Mask, xK_g), focusUrgent)
         , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
         , ((mod4Mask .|. shiftMask, xK_q), quitWithWarning)
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
+        , ((mod4Mask, xK_u), spawn "$HOME/bin/puburl.sh")
         , ((mod4Mask, xK_b), sendMessage ToggleStruts) -- toggle xmobar
+        , ((mod4Mask .|. controlMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 1") -- enable touchpad
+        , ((mod4Mask .|. shiftMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 0") -- disable touchpad
         , ((0, xF86XK_AudioLowerVolume), spawn "/usr/bin/amixer set Master 2dB-") -- adjust volume
         , ((0, xF86XK_AudioRaiseVolume), spawn "/usr/bin/amixer set Master 2dB+")
         , ((0, xF86XK_AudioMute), spawn "/usr/bin/amixer set Master toggle")
-        , ((0, xF86XK_Launch1), spawn "/usr/bin/sudo /usr/sbin/pm-suspend-hybrid & /usr/bin/gnome-screensaver-command -l") -- laptop blue button
+        , ((0, xF86XK_Launch1), spawn "$HOME/bin/suspend") -- laptop blue button
         , ((0, xK_Print), spawn "/usr/bin/gnome-screenshot; notify-send 'screenshot captured'") -- screenshots
         , ((controlMask, xK_Print), spawn "/usr/bin/gnome-screenshot -i")
         , ((mod4Mask .|. controlMask, xK_n), do -- quick note taking

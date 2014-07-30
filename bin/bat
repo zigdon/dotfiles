@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import subprocess
 
 full = '/sys/class/power_supply/BAT0/%s_full'
 now = '/sys/class/power_supply/BAT0/%s_now'
@@ -33,5 +34,12 @@ if os.path.exists(full % name):
              '<fc=%(scolor)s>)</fc>') % {'scolor': scolor,
                                          'ccolor': ccolor,
                                          'percent': charge * 100}
+
+      if status != 'Charging' and charge < 0.05:
+          subprocess.call(['notify-send',
+                           '-u', 'critical', '-t', '5000',
+                           "Battery Low",
+                           "%d%% left" % (charge * 100)])
+
 
 # vim: set ts=4 sts=4 sw=4 et:

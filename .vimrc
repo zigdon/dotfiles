@@ -29,6 +29,7 @@ set mouse=a
 set tabstop=4
 set softtabstop=2
 set shiftwidth=2
+set shiftround
 set expandtab
 set autoindent
 set smartindent
@@ -109,21 +110,6 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-
-function s:DiffInit()
-  " Spread the window sizes equally
-  wincmd =
-  " Vim starts in first window (old file), move to next window (new file)
-  wincmd w
-  " Move to first change (gg = start of file, ]c = next diff, [c = prev diff)
-  normal gg]c[c
-endfunction
-if &diff
-  " Windows aren't ready when .vimrc is read/executed, delay until VimEnter
-  augroup diff_init
-    autocmd VimEnter * call <SID>DiffInit()
-  augroup end
-endif
 
 " AUTOCMDs
 """"""""""""""""""""""""""""""""""""""""""""""""""
