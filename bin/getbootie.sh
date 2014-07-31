@@ -13,7 +13,7 @@ find . -mtime -10 -type f -print0 |
   cut -s -d\  -f6- |
   sed 's/-/ /' |
   while read M Y N; do
-    mp3info -l "Best of Bootie $M-$Y" $N;
+    id3v2 --album "Best of Bootie $M-$Y" "$N" --year $Y
     touch -d "$Y-$M-01" "$N";
   done
 
