@@ -11,7 +11,7 @@ new-window -n subucket   'sudo -u bucket -s'
 new-window -n moderator  '/home/zigdon/lib/xkcd/startmodbot.sh'
 new-window -n kol        '/home/zigdon/lib/xkcd/startkolbot.sh'
 new-window -n sandarator '/home/zigdon/lib/xkcd/startsandbot.sh'
-new-window -n forest     '/home/zigdon/lib/perl/forest/startranger.sh'
+# new-window -n forest     '/home/zigdon/lib/perl/forest/startranger.sh'
 new-window -n bucket     '/home/zigdon/lib/xkcd/runbucket.sh'
 new-window -n goat       '/home/zigdon/lib/xkcd/rungoat.sh'
 
