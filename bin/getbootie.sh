@@ -4,7 +4,7 @@ URL=http://bootiemashup.com/blog/category/top10
 DIR=/home/zigdon/tmp/bootie
 SAVE=/home/zigdon/Dropbox/Music/bootie
 
-wget -r -l1 -t1 -nd -nc -np -A.mp3 -erobots=off $URL -H -P $DIR -q
+wget -r -l1 -t1 -nd -nc -np -A.mp3 $URL -H -P $DIR -q
 
 cd $DIR
 find . -mtime -10 -type f -print0 |
