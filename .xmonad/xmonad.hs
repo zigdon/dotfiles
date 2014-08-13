@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -41,6 +42,7 @@ scratchpads = [
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "Vncviewer" --> doFloat
+    , title =? "UltraViolet" --> doFloat
     , title =? "pterm Reconfiguration" --> doFloat
     , isFullscreen --> doFullFloat
     ]
@@ -85,4 +87,8 @@ main = do
                      appendFilePrompt defaultXPConfig "/home/zigdon/Documents/notes.txt")
         , ((mod4Mask .|. shiftMask, xK_n), namedScratchpadAction scratchpads "notes" )
 
+        -- mod-a copy to all
+        -- mod-shift-a remove from all but current
+        , ((mod4Mask, xK_a ), windows copyToAll)
+        , ((mod4Mask .|. shiftMask, xK_a ), killAllOtherCopies)
         ]
