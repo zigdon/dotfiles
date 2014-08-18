@@ -89,6 +89,6 @@ main = do
 
         -- mod-a copy to all
         -- mod-shift-a remove from all but current
-        , ((mod4Mask, xK_a ), windows copyToAll)
+        , ((mod4Mask .|. controlMask, xK_a ), windows copyToAll)
         , ((mod4Mask .|. shiftMask, xK_a ), killAllOtherCopies)
         ]
