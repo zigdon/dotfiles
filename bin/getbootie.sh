@@ -1,8 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
 
 URL=http://bootiemashup.com/blog/category/top10 
 DIR=/home/zigdon/tmp/bootie
-SAVE=/home/zigdon/Dropbox/Music/bootie
+SAVE=/home/zigdon/Dropbox/Misc/bootie
 
 wget -r -l1 -t1 -nd -nc -np -A.mp3 $URL -H -P $DIR -q
 
