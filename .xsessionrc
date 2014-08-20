@@ -57,6 +57,11 @@ else
   xterm &
 fi
 
+# disable touchpad while typing
+if [ -x /usr/bin/syndaemon ] ; then
+   /usr/bin/syndaemon -d -K -i 1 &
+fi
+
 if [ -x $HOME/.dotfiles/xsessionrc ]; then
   . $HOME/.dotfiles/xsessionrc
 fi
