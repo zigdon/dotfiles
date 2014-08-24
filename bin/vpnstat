@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then
+  echo '<fc=#00a000>(*)</fc>'
+else
+  echo '<fc=#a00000>(*)</fc>'
+fi

@@ -8,10 +8,11 @@ Config { font = "xft:DejaVu Sans Mono:size=7"
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
                     , Run Com "bat" [] "battery" 100
+                    , Run Com "vpnstat" [] "vpnstat" 60
                     , Run Date "%a %b %_d %l:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% / %swap% | %battery%    <fc=#ee9a00>%date%</fc> | %KSFO%"
+       , template = "%StdinReader% }{ %cpu% | %memory% / %swap% | %battery%  %vpnstat%  <fc=#ee9a00>%date%</fc> | %KSFO%"
        }
