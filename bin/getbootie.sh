@@ -13,8 +13,10 @@ find . -mtime -10 -type f -print0 |
   cut -s -d\  -f6- |
   sed 's/-/ /' |
   while read M Y N; do
-    id3v2 --album "Best of Bootie $M-$Y" "$N" --year $Y
-    touch -cd "$Y-$M-01" "$N";
+    if [[ -n "$Y" ]]; then
+      id3v2 --album "Best of Bootie $M-$Y" "$N" --year $Y
+      touch -cd "$Y-$M-01" "$N";
+    fi
   done
 
 cp -n -v *.mp3 $SAVE
