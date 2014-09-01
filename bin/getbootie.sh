@@ -9,7 +9,7 @@ wget -r -l1 -t1 -nd -nc -np -A.mp3 $URL -H -P $DIR -q
 cd $DIR
 find . -mtime -10 -type f -print0 |
   xargs -0 ls -l --time-style=+%m-%Y |
-  sed 's/  \+/ /g' |
+  sed 's/zigdon  \+/zigodn /g' |
   cut -s -d\  -f6- |
   sed 's/-/ /' |
   while read M Y N; do
