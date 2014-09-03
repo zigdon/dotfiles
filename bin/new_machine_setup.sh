@@ -22,6 +22,10 @@ fi
 echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
 
+echo Enabling keychain for xmonad
+echo '/OnlyShowIn/
+s/$/;XMonad/' | sudo ed /etc/xdg/autostart/gnome-keyring-pkcs11.desktop
+
 ssh-keygen -t dsa
 
 echo Create work and personal profiles
