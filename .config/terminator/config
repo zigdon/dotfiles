@@ -1,11 +1,13 @@
 [global_config]
   enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  inactive_color_offset = 1.0
   borderless = True
 [keybindings]
 [profiles]
   [[default]]
     use_system_font = False
     font = DejaVu Sans Mono 9
+    background_image = None
     foreground_color = "#bbbbbb"
     show_titlebar = False
     copy_on_selection = True
