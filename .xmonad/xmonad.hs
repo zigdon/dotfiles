@@ -42,7 +42,7 @@ scratchpads = [
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "Vncviewer" --> doFloat
-    , title =? "UltraViolet" --> doFloat
+    , title =? "Hangouts" --> doFloat
     , title =? "pterm Reconfiguration" --> doFloat
     , isFullscreen --> doFullFloat
     ]
