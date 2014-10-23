@@ -6,10 +6,12 @@
   [[default]]
     use_system_font = False
     font = DejaVu Sans Mono 9
+    scrollbar_position = hidden
     foreground_color = "#bbbbbb"
     show_titlebar = False
     copy_on_selection = True
     allow_bold = False
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
