@@ -45,6 +45,7 @@ myManageHook = composeAll
     , className =? "gnubby_ssh_prompt" --> doRectFloat (W.RationalRect 0.35 0.3 0.3 0.2)
     , title =? "Hangouts" --> doFloat
     , title =? "pterm Reconfiguration" --> doFloat
+    , title =? "Page(s) Unresponsive" --> doFloat
     , isFullscreen --> doFullFloat
     ]
 
