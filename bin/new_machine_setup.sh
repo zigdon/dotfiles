@@ -9,6 +9,9 @@ git fetch github HEAD
 git reset --hard FETCH_HEAD
 EOF
 
+echo Synching submodules
+git submodule update --init --recursive
+
 echo Pairing phone BT
 bluetooth-wizard
 
