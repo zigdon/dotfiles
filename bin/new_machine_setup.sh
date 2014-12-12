@@ -9,11 +9,14 @@ git fetch github HEAD
 git reset --hard FETCH_HEAD
 EOF
 
+echo Synching submodules
+git submodule update --init --recursive
+
 echo Pairing phone BT
 bluetooth-wizard
 
 sudo apt-get update
-sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun
+sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr
 
 if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
   ~/.dotfiles/new_machine_setup.sh
