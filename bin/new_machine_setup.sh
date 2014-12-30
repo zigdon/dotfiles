@@ -25,6 +25,12 @@ fi
 echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
 
+echo Enabling auto-detect of hdmi
+echo 'i
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/zigdon/bin/hdmi"
+.
+w /etc/udev/rules.d/hdmi.rules' | sudo ed
+
 echo Enabling keychain for xmonad
 echo '/OnlyShowIn/
 s/$/;XMonad/' | sudo ed /etc/xdg/autostart/gnome-keyring-pkcs11.desktop
