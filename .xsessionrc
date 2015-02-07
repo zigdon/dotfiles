@@ -24,6 +24,10 @@ eval `/usr/bin/ssh-agent`
 trayer --edge top --align right --SetDockType true --SetPartialStrut false \
  --expand true --width 10 --transparent true --alpha 0 --tint 0x000000 --height 17 &
 
+if [ -x /usr/bin/xcompmgr ] ; then
+   /usr/bin/xcompmgr -n &
+fi
+
 if [ -x /usr/bin/nm-applet ] ; then
    /usr/bin/nm-applet --sm-disable &
 fi

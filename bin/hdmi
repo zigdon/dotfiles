@@ -4,29 +4,35 @@ import os
 import subprocess
 import sys
 
+xauth = os.getenv('XAUTHORITY', '/home/zigdon/.Xauthority')
+os.environ['DISPLAY'] = ':0'
+os.environ['XAUTHORITY'] = xauth
+
 path_tmpl = '/sys/class/drm/card0/card0-%s-1/status'
-devices = {'HDMI': 'HDMI-A', 'DP': 'DP'}
+devices = (('HDMI', 'HDMI', 'HDMI-A'),
+        ('DisplayPort', 'DP', 'DP'))
 location = 'above'
 
-connected = None
-for name, bit in devices.items():
-  path = path_tmpl % bit
-  if len(sys.argv) > 1:
-    if sys.argv[1] in ('y', 'yes', 'on'):
-      connected = 'connected'
-    else:
-      connected = 'disconnected'
-  elif os.path.exists(path):
-    with open(path) as f:
-      connected = f.read()
+if len(sys.argv) > 1 and sys.argv[1] in ('off', 'n', 'no'):
+    print 'Disconnecting by command.'
+    for name, device, bit in devices:
+        print 'Disabling %s...' % name
+        subprocess.call(['xrandr', '--output', '%s1' % device, '--off'])
+    sys.exit()
 
-  if connected or len(sys.argv) > 1:
-    if 'disconnected' in connected:
-      print '%s not detected, disabling.' % name
-      subprocess.call(['xrandr', '--output', '%s1' % name, '--off'])
-    else:
-      print '%s detected, setting to display %s.' % (name, location)
-      subprocess.call(['xrandr', '--output', '%s1' % name,
-                    '--auto', '--%s' % location, 'LVDS1'])
-      break
+connected = None
+for name, device, bit in devices:
+    path = path_tmpl % bit
+    if os.path.exists(path):
+        with open(path) as f:
+            connected = f.read()
+
+        if 'disconnected' in connected:
+            print '%s not detected, disabling.' % name
+            subprocess.call(['xrandr', '--output', '%s1' % device, '--off'])
+        else:
+            print '%s detected, setting to display %s.' % (name, location)
+            subprocess.call(['xrandr', '--output', '%s1' % device,
+                            '--auto', '--%s' % location, 'LVDS1'])
+            break
 
