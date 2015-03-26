@@ -5,9 +5,9 @@
 [keybindings]
 [profiles]
   [[default]]
+    scrollbar_position = hidden
     use_system_font = False
     font = DejaVu Sans Mono 9
-    scrollbar_position = hidden
     background_image = None
     foreground_color = "#bbbbbb"
     show_titlebar = False

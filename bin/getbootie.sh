@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=http://bootiemashup.com/blog/category/top10 
+URL=${1:-http://bootiemashup.com/blog/category/top10}
 DIR=/home/zigdon/tmp/bootie
 SAVE=/home/zigdon/Dropbox/Misc/bootie
 
