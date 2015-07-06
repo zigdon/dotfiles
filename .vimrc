@@ -65,11 +65,14 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 let mapleader = "\\"
 let g:mapleader = "\\"
 
-" ,m = remove carriage returns (dos2unix)
+" \m = remove carriage returns (dos2unix)
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" ,ss = toggle spell check
-map <leader>ss :setlocal spell!<cr>
+" \ss = toggle spell check
+nmap <leader>ss :setlocal spell!<cr>
+
+" \g = toggle gitgutter
+nmap <leader>g :GitGutterLineHighlightsToggle<cr>
 
 " escape insert mode
 inoremap jk <esc>
