@@ -71,8 +71,8 @@ main = do
         , ((mod4Mask, xK_a), sendMessage MirrorShrink) -- adjust window height
         , ((mod4Mask, xK_z), sendMessage MirrorExpand)
         , ((mod4Mask, xK_g), focusUrgent)
-        , ((mod4Mask .|. shiftMask, xK_i), spawn "/usr/bin/fetchotp -x")
         , ((mod4Mask .|. shiftMask, xK_q), quitWithWarning)
+        , ((mod4Mask, xK_o), spawn "$HOME/bin/logouts.sh")
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
         , ((mod4Mask, xK_u), spawn "$HOME/bin/puburl.sh")
         , ((mod4Mask, xK_b), sendMessage ToggleStruts) -- toggle xmobar
