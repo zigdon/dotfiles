@@ -51,7 +51,7 @@ fi
 
 if [ -x /usr/bin/xautolock ] ; then
   /usr/bin/xautolock -time 5 -locker "gnome-screensaver-command -l" -notify 10 \
-     -notifier "xset s activate" \
+     -notifier "xset s activate && xset dpms force off" \
      -detectsleep &
 fi
 
