@@ -24,6 +24,7 @@ setopt auto_list            ## Automatically list choices on completion
 setopt auto_menu            ## perform menu completion on subsequent completes
 setopt auto_pushd           ## Make cd push the owd to the stac
 setopt auto_remove_slash    ## Remove trailing / when it was added by completion
+setopt extended_history     ## Store timestamp/runtime in history file
 setopt inc_append_history   ## Append history lines as they are executed, not only on exit
 setopt interactive_comments ## allow comments on command line
 setopt listambiguous        ## autolists second completions if 1st ambiguous
