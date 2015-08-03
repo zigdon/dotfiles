@@ -5,14 +5,30 @@ REQUIRED=$HOME/.ssh/id_dsa
 SRCPATH=$HOME/Pictures
 DESTHOST=carabiner.peeron.com
 DESTPATH=Dropbox/Public/Screenshots
+LOGFILE=/tmp/puburls.log
+DEBUG=0
+DATE=$(date)
+
+log() {
+  if [[ $DEBUG == 1 ]]; then
+    echo $DATE - $* >> $LOGFILE
+  fi
+}
 
 FILE=$1
+log "FILE='$FILE'"
 if [[ -z $FILE ]]; then
   CLIP=$(xclip -o)
   if ( echo $CLIP | grep -q / ); then
     FILE="$CLIP"
+    log "file from clipboard: $FILE"
   else
     FILE="$SRCPATH/$CLIP"
+    log "file guessing: $FILE"
+    if [[ -d $FILE ]]; then
+      log "That's a directory."
+      FILE=
+    fi
   fi
 fi
 
@@ -28,7 +44,9 @@ if ! ( ssh-add -l | grep -q $REQUIRED ); then
 fi
 
 if [[ ! -r "$FILE" ]]; then
+  log "'$FILE' not readable"
   FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | cut -c 42-)"
+  log "Trying '$FILE'"
   if [[ ! -r "$FILE" ]]; then
     $OUTPUT "$FILE not found."
     exit 1
