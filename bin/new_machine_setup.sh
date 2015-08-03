@@ -16,7 +16,7 @@ echo Pairing phone BT
 bluetooth-wizard
 
 sudo apt-get update
-sudo apt-get install fetchotp mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock
+sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock
 
 if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
   ~/.dotfiles/new_machine_setup.sh
