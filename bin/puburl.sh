@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OUTPUT="notify-send -t 10000"
-REQUIRED=$HOME/.ssh/id_dsa
+REQUIRED=publickey
 SRCPATH=$HOME/Pictures
 DESTHOST=carabiner.peeron.com
 DESTPATH=Dropbox/Public/Screenshots
@@ -32,7 +32,7 @@ if [[ -z $FILE ]]; then
   fi
 fi
 
-if ! ( ssh-add -l | grep -q $REQUIRED ); then
+if ! ( ssh-add -l | grep -q "$REQUIRED" ); then
   if [[ -n $TERM ]]; then
     $OUTPUT "Required key not loaded."
     add-add $REQUIRED
