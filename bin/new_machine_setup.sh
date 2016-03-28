@@ -9,11 +9,18 @@ git fetch github HEAD
 git reset --hard FETCH_HEAD
 EOF
 
+echo "Is this going to be your main desktop? [y/n] "
+read DESKTOP
+if [[ $DESKTOP == 'y' ]]; then
+  echo Setting up desktop.
+  desktop() { sh -c "$*" ; }
+else
+  echo Not setting up desktop.
+  desktop() { true ; }
+fi
+
 echo Synching submodules
 git submodule update --init --recursive
-
-echo Pairing phone BT
-bluetooth-wizard
 
 sudo apt-get update
 sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock
@@ -25,12 +32,7 @@ fi
 echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
 
-echo Enabling auto-detect of hdmi
-echo 'i
-SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/zigdon/bin/hdmi"
-.
-w /etc/udev/rules.d/hdmi.rules' | sudo ed
-
+desktop <<DESK
 echo Enabling keychain for xmonad
 echo '/OnlyShowIn/
 s/$/;XMonad/' | sudo ed /etc/xdg/autostart/gnome-keyring-pkcs11.desktop
@@ -42,6 +44,7 @@ google-chrome > /dev/null 2>&1 &
 
 echo put the new public key in gist
 cat ~/.ssh/id_dsa.pub
+DESK
 
 git config --global user.name "Dan Boger"
 git config --global user.email dan@peeron.com
