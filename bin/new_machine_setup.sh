@@ -44,6 +44,12 @@ google-chrome > /dev/null 2>&1 &
 
 echo put the new public key in gist
 cat ~/.ssh/id_dsa.pub
+
+echo Adding crontab
+crontab <<CRON
+# break reminders
+10 11-15 * * mon-fri DISPLAY=:0 /usr/bin/notify-send "Time to take a walk"
+CRON
 DESK
 
 git config --global user.name "Dan Boger"
