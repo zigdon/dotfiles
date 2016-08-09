@@ -45,7 +45,7 @@ fi
 
 if [[ ! -r "$FILE" ]]; then
   log "'$FILE' not readable"
-  FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | awk '{print $8}')"
+  FILE="$SRCPATH/$(ls -ort $SRCPATH | tail -1 | cut -d: -f 2- | cut -d\  -f 2-)"
   log "Trying '$FILE'"
   if [[ ! -r "$FILE" ]]; then
     $OUTPUT "$FILE not found."
