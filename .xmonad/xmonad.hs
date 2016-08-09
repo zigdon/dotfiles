@@ -76,8 +76,6 @@ main = do
         , ((mod4Mask, xK_c), spawn "$HOME/bin/clip-to-chrome.sh")
         , ((mod4Mask, xK_u), spawn "$HOME/bin/puburl.sh")
         , ((mod4Mask, xK_b), sendMessage ToggleStruts) -- toggle xmobar
-        , ((mod4Mask .|. controlMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 1") -- enable touchpad
-        , ((mod4Mask .|. shiftMask, xK_t), spawn "$HOME/bin/touchpad_enable.sh 0") -- disable touchpad
         , ((0, xF86XK_AudioLowerVolume), spawn "/usr/bin/amixer set Master 2dB-") -- adjust volume
         , ((0, xF86XK_AudioRaiseVolume), spawn "/usr/bin/amixer set Master 2dB+")
         , ((0, xF86XK_AudioMute), spawn "/usr/bin/amixer set Master toggle")
