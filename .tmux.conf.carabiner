@@ -1,4 +1,5 @@
 # interactive windows
+rename-session main
 move-window -t :2
 new-window -n weechat    'weechat'
 new-window -n htop       'htop'
