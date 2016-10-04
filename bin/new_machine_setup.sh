@@ -48,7 +48,7 @@ cat ~/.ssh/id_dsa.pub
 echo Adding crontab
 crontab <<CRON
 # break reminders
-10 11-15 * * mon-fri DISPLAY=:0 /usr/bin/notify-send "Time to take a walk"
+50 10-15 * * mon-fri DISPLAY=:0 /usr/bin/notify-send "Time to take a walk"
 CRON
 DESK
 
