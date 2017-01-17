@@ -15,5 +15,5 @@ Config { font = "xft:DejaVu Sans Mono:size=7"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% / %swap% | %battery%  %vpnstat%  <fc=#ee9a00><action='gworldclock'>%date%</action></fc> | %KSFO% | %auth%"
+       , template = "%StdinReader% }{ %date% | %cpu% | %memory% / %swap% | %battery%  %vpnstat%  <fc=#ee9a00><action='gworldclock'>%date%</action></fc> | %KSFO% | %auth%"
        }
