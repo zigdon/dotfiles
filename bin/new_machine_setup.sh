@@ -33,6 +33,8 @@ echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
 
 desktop <<DESK
+echo "*** Install https://github.com/jwilm/alacritty if possible ***"
+
 echo Enabling keychain for xmonad
 echo '/OnlyShowIn/
 s/$/;XMonad/' | sudo ed /etc/xdg/autostart/gnome-keyring-pkcs11.desktop
