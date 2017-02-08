@@ -23,7 +23,7 @@ echo Synching submodules
 git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock
+sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock tmux
 
 if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
   ~/.dotfiles/new_machine_setup.sh
@@ -33,6 +33,8 @@ echo Switching shell to zsh
 sudo chsh zigdon -s /usr/bin/zsh
 
 desktop <<DESK
+echo "*** Install https://github.com/jwilm/alacritty if possible ***"
+
 echo Enabling keychain for xmonad
 echo '/OnlyShowIn/
 s/$/;XMonad/' | sudo ed /etc/xdg/autostart/gnome-keyring-pkcs11.desktop
