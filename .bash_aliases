@@ -10,6 +10,7 @@ alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias rm='rm -I'
 
 if [ -f ~/.dotfiles/bash_aliases ]; then
   . ~/.dotfiles/bash_aliases
