@@ -32,10 +32,6 @@ if [ -x /usr/bin/nm-applet ] ; then
    /usr/bin/nm-applet --sm-disable &
 fi
 
-if [ -x /usr/bin/bluetooth-applet ] ; then
-   /usr/bin/bluetooth-applet &
-fi
-
 if [ -x /usr/bin/volti ] ; then
    /usr/bin/volti &
 fi
@@ -61,9 +57,9 @@ else
   xterm &
 fi
 
-# disable touchpad while typing
-if [ -x /usr/bin/syndaemon ] ; then
-   /usr/bin/syndaemon -d -K -i 1 &
+# screenshot utility
+if [ -x /usr/bin/shutter ] ; then
+  /usr/bin/shutter --min_at_startup &
 fi
 
 if [ -x $HOME/.dotfiles/xsessionrc ]; then

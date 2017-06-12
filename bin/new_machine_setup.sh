@@ -23,7 +23,7 @@ echo Synching submodules
 git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock tmux
+sudo apt-get install mosh gnome-panel xmonad feh trayer volti xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged ipython gworldclock tmux shutter
 
 if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
   ~/.dotfiles/new_machine_setup.sh
