@@ -5,12 +5,12 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 bindkey -e
-bindkey "\eOD" backward-word
-bindkey "\eOC" forward-word
-bindkey "\e[1;5D" backward-char
-bindkey "\e[1;5C" forward-char
-bindkey "\e[5~" history-search-backward
-bindkey "\e[6~" history-search-forward
+bindkey "\eOD" backward-word            # left-arrow
+bindkey "\eOC" forward-word             # right-arrow
+bindkey "\e[1;5D" backward-char         # ctrl-left-arrow
+bindkey "\e[1;5C" forward-char          # ctrl-right-arrow
+bindkey "\e[5~" history-search-backward # up-arrow
+bindkey "\e[6~" history-search-forward  # down-arrow
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -74,7 +74,7 @@ P4DIFF=vimdiff
 ## use less as the pager for the "< file" shorthand
 READNULLCMD="less"
 
-# set prompt, color based on LOAS access.
+# set prompt
 default_prompt () {
   PS1="%m%(#.#.$) "
   RPS1=" %~"
@@ -101,15 +101,12 @@ vcs_info_wrapper() {
   fi
 }
 
+# right-side prompt shows [[git-branch] /current/path]
 RPROMPT='[$(vcs_info_wrapper)${YELLOW}%d${NORMAL}]'
 
 # shortcut fuctions
 function pyhelp () { python -c "help($*)" }
 function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }
-
-if [[ -f ~/.dotfiles/zshrc ]]; then
-  . ~/.dotfiles/zshrc
-fi
 
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -124,3 +121,7 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+# source work-specific zshrc
+if [[ -f ~/.dotfiles/zshrc ]]; then
+  . ~/.dotfiles/zshrc
+fi
