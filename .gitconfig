@@ -17,3 +17,6 @@
 	default = simple
 [url "sso://user/zigdon/"]
 	insteadof = me:
+
+[alias]
+    l = log --all --decorate --oneline --graph
