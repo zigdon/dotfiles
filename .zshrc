@@ -11,6 +11,9 @@ bindkey "\e[1;5D" backward-char         # ctrl-left-arrow
 bindkey "\e[1;5C" forward-char          # ctrl-right-arrow
 bindkey "\e[5~" history-search-backward # up-arrow
 bindkey "\e[6~" history-search-forward  # down-arrow
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
