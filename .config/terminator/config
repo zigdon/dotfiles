@@ -1,25 +1,29 @@
 [global_config]
+  borderless = True
+  broadcast_default = off
   enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   inactive_color_offset = 1.0
-  borderless = True
+  tab_position = bottom
 [keybindings]
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    use_system_font = False
-    font = DejaVu Sans Mono 9
-    background_image = None
-    foreground_color = "#bbbbbb"
-    show_titlebar = False
-    copy_on_selection = True
-    allow_bold = False
-    scrollback_infinite = True
+  broadcast_all = Pause
+  broadcast_group = Pause
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    copy_on_selection = True
+    cursor_color = "#bbbbbb"
+    font = DejaVu Sans Mono 11
+    foreground_color = "#bbbbbb"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

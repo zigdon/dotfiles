@@ -1,5 +1,9 @@
 #/bin/bash
 
+/usr/bin/xmonad &
+
+/usr/bin/gnome-screensaver &
+
 # set the default cursor
 xsetroot -cursor_name left_ptr
 

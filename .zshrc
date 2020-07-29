@@ -11,6 +11,9 @@ bindkey "\e[1;5D" backward-char         # ctrl-left-arrow
 bindkey "\e[1;5C" forward-char          # ctrl-right-arrow
 bindkey "\e[5~" history-search-backward # up-arrow
 bindkey "\e[6~" history-search-forward  # down-arrow
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -24,6 +27,7 @@ setopt auto_list            ## Automatically list choices on completion
 setopt auto_menu            ## perform menu completion on subsequent completes
 setopt auto_pushd           ## Make cd push the owd to the stac
 setopt auto_remove_slash    ## Remove trailing / when it was added by completion
+setopt complete_inword      ## Use tab-complete for path fragments
 setopt extended_history     ## Store timestamp/runtime in history file
 setopt inc_append_history   ## Append history lines as they are executed, not only on exit
 setopt interactive_comments ## allow comments on command line
