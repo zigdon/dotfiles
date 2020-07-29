@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "/home/zigdon/.vim/bundle/typescript-vim"]
+	path = /home/zigdon/.vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
