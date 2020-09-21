@@ -20,8 +20,8 @@ syntax on
 
 set ruler
 
-" Have the mouse work
-set mouse=a
+" Have the mouse work (but allow terminal mouse when in command prompt)
+set mouse=nvi
 
 " Set 'tabstop' and 'shiftwidth' to whatever you prefer and use
 " 'expandtab'.  This way you will always insert spaces.  The
