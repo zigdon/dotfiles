@@ -22,3 +22,6 @@
 [submodule "/home/zigdon/.vim/bundle/typescript-vim"]
 	path = /home/zigdon/.vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule ".vim/bundle/undotree"]
+	path = .vim/bundle/undotree
+	url = git@github.com:mbbill/undotree.git
