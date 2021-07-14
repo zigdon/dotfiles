@@ -143,5 +143,8 @@ if !exists("autocommands_loaded")
   " happen, but I *do* sometimes get burned by this.  The following autocommand
   " prevents this from happening
   autocmd InsertLeave * set nopaste
+
+  autocmd BufReadPost *.tsx setlocal syntax=typescript
+
   let autocommands_loaded = 1
 endif
