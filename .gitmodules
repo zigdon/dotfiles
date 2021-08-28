@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/undotree"]
 	path = .vim/bundle/undotree
 	url = git@github.com:mbbill/undotree.git
+[submodule "/home/zigdon/.vim/bundle/vim-go"]
+	path = /home/zigdon/.vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
