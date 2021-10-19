@@ -19,6 +19,8 @@ bindkey "^[[B" history-search-forward
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/zigdon/.zshrc'
 
+fpath=($HOME/.zsh/autoload $fpath)
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
