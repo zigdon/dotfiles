@@ -110,6 +110,11 @@ vcs_info_wrapper() {
 # right-side prompt shows [[git-branch] /current/path]
 RPROMPT='[$(vcs_info_wrapper)${YELLOW}%d${NORMAL}]'
 
+# enable fzf completion
+if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
 # shortcut fuctions
 function pyhelp () { python -c "help($*)" }
 function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }

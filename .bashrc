@@ -6,7 +6,7 @@
 [ -z "$PS1" ] && return
 
 # add our own bin to the path
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
