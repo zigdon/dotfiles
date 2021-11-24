@@ -1,3 +1,4 @@
+" Define work things
 if filereadable($HOME . "/.dotfiles/vimrc")
   source $HOME/.dotfiles/vimrc
 endif
