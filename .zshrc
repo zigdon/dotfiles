@@ -1,4 +1,5 @@
-# Lines configured by zsh-newuser-install
+PATH=$PATH:$HOME/bin:$HOME/go/bin
+
 # Save ALL the commands
 HISTFILE=~/.histfile
 HISTSIZE=1000000
