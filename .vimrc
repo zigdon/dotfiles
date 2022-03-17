@@ -19,7 +19,8 @@ set t_Co=256
 set bg=dark
 syntax on
 
-set ruler
+" Highlight the cursor
+set ruler cursorline cursorcolumn
 
 " Have the mouse work (but allow terminal mouse when in command prompt)
 set mouse=nvi
