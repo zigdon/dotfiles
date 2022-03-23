@@ -21,6 +21,9 @@ syntax on
 
 " Highlight the cursor
 set ruler cursorline cursorcolumn
+highlight clear CursorLine
+highlight CursorLine ctermbg=240 guibg=Grey40
+highlight CursorColumn ctermbg=240
 
 " Have the mouse work (but allow terminal mouse when in command prompt)
 set mouse=nvi
