@@ -1,12 +1,24 @@
 [global_config]
-  borderless = True
-  broadcast_default = off
-  enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  inactive_color_offset = 1.0
+  focus = system
+  geometry_hinting = True
+  window_state = maximise
   tab_position = bottom
+  broadcast_default = off
+  inactive_color_offset = 1.0
+  enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  always_split_with_profile = True
 [keybindings]
-  broadcast_all = Pause
   broadcast_group = Pause
+  broadcast_all = Pause
+[profiles]
+  [[default]]
+    cursor_color = "#bbbbbb"
+    font = DejaVu Sans Mono 11
+    foreground_color = "#bbbbbb"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -16,14 +28,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    allow_bold = False
-    copy_on_selection = True
-    cursor_color = "#bbbbbb"
-    font = DejaVu Sans Mono 11
-    foreground_color = "#bbbbbb"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
