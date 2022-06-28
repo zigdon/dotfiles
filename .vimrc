@@ -17,7 +17,6 @@ set t_Co=256
 
 " Color scheme
 set bg=dark
-syntax on
 
 " Highlight the cursor
 set ruler cursorline cursorcolumn
@@ -54,7 +53,8 @@ set wildignore=*.o,*~,*.pyc,*.pyo,*.class,*.hi
 
 " File type detection
 filetype on
-filetype plugin on
+filetype plugin indent on
+syntax on
 
 " KEYBINDINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""
