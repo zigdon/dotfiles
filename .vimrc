@@ -85,6 +85,8 @@ inoremap kj <esc>
 
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" Make :Man work
+runtime ftplugin/man.vim
 
 " Load pathogen: https://github.com/tpope/vim-pathogen
 if filereadable($HOME . "/.vim/autoload/pathogen.vim")
