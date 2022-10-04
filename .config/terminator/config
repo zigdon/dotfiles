@@ -7,6 +7,7 @@
   inactive_color_offset = 1.0
   enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   always_split_with_profile = True
+  clear_select_on_copy = True
 [keybindings]
   broadcast_group = Pause
   broadcast_all = Pause

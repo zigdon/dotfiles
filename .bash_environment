@@ -1,5 +1,5 @@
 export TZ='America/Los_Angeles'
-export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8 TIME=en_GB.UTF-8
 export VISUAL=vim
 export EDITOR=vim
 export TERM=xterm-256color
