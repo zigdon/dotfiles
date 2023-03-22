@@ -1,5 +1,6 @@
 PATH=$PATH:$HOME/bin:$HOME/go/bin
 
+
 # Save ALL the commands
 HISTFILE=~/.histfile
 HISTSIZE=1000000
@@ -10,6 +11,8 @@ bindkey "\eOD" backward-word            # left-arrow
 bindkey "\eOC" forward-word             # right-arrow
 bindkey "\e[1;5D" backward-char         # ctrl-left-arrow
 bindkey "\e[1;5C" forward-char          # ctrl-right-arrow
+bindkey  "^[[H"   beginning-of-line     # Home
+bindkey  "^[[F"   end-of-line           # End
 bindkey "\e[5~" history-search-backward # up-arrow
 bindkey "\e[6~" history-search-forward  # down-arrow
 bindkey "^[[A" history-search-backward
@@ -19,6 +22,10 @@ bindkey "^[[B" history-search-forward
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/zigdon/.zshrc'
+zstyle ':completion:*' menu yes select
+zstyle ':completion::complete:*' use-cache 1        #enables completion caching
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
+autoload -Uz compinit && compinit -i
 
 fpath=($HOME/.zsh/autoload $fpath)
 
@@ -119,6 +126,11 @@ fi
 # shortcut fuctions
 function pyhelp () { python -c "help($*)" }
 function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }
+
+# enable fzf for history
+if [[ -f ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh ]]; then
+  source ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
+fi
 
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
