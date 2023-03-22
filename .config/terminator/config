@@ -7,13 +7,13 @@
   inactive_color_offset = 1.0
   enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   always_split_with_profile = True
+  putty_paste_style = True
   clear_select_on_copy = True
 [keybindings]
   broadcast_group = Pause
   broadcast_all = Pause
 [profiles]
   [[default]]
-    cursor_color = "#bbbbbb"
     font = DejaVu Sans Mono 11
     foreground_color = "#bbbbbb"
     scrollbar_position = hidden

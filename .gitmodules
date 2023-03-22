@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule ".zsh/git/fzf-zsh-plugin"]
+	path = .zsh/git/fzf-zsh-plugin
+	url = git@github.com:unixorn/fzf-zsh-plugin.git
