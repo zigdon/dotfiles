@@ -2,6 +2,7 @@
   focus = system
   geometry_hinting = True
   window_state = maximise
+  borderless = True
   tab_position = bottom
   broadcast_default = off
   inactive_color_offset = 1.0
@@ -14,6 +15,7 @@
   broadcast_all = Pause
 [profiles]
   [[default]]
+    allow_bold = False
     font = DejaVu Sans Mono 11
     foreground_color = "#bbbbbb"
     scrollbar_position = hidden

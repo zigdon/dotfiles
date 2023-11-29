@@ -155,3 +155,6 @@ if !exists("autocommands_loaded")
 
   let autocommands_loaded = 1
 endif
+
+" Enabling syntax as the last thing, for Reasons
+syntax on
