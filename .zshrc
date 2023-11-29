@@ -130,6 +130,7 @@ function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }
 # enable fzf for history
 if [[ -f ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh ]]; then
   source ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
 # start typing + [Up-Arrow] - fuzzy find history forward
