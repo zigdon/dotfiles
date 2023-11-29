@@ -23,7 +23,9 @@ echo Synching submodules
 git submodule update --init --recursive
 
 sudo apt-get update
-sudo apt-get install mosh gnome-panel xmonad feh trayer xautolock git tig htop terminator xmobar suckless-tools gmrun xcompmgr haveged gworldclock tmux shutter bat exa cargo fzf zsh
+sudo apt-get install mosh gnome-panel xmonad feh trayer xautolock git tig htop \
+  terminator xmobar suckless-tools gmrun xcompmgr haveged gworldclock tmux \
+  shutter bat exa cargo ripgrep fzf zsh
 cargo install du-dust
 
 if [[ -x ~/.dotfiles/new_machine_setup.sh ]]; then
