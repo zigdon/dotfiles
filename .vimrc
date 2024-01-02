@@ -74,6 +74,7 @@ let g:mapleader = "\\"
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " \ss = toggle spell check
+set spellfile=$HOME/.vim/spellfile.utf-8.add
 nmap <leader>ss :setlocal spell!<cr>
 
 " \g = toggle gitgutter
