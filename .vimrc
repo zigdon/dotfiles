@@ -48,6 +48,9 @@ set foldmethod=indent
 set foldcolumn=5
 set modeline
 
+" Experiment with relative numbers
+set rnu
+
 " Ignore compiled files when completing paths
 set wildignore=*.o,*~,*.pyc,*.pyo,*.class,*.hi
 
