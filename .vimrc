@@ -17,12 +17,14 @@ set t_Co=256
 
 " Color scheme
 set bg=dark
+" Override constants, because contrast is nice
+highlight Constant ctermfg=LightRed
 
 " Highlight the cursor
 set ruler cursorline cursorcolumn
 highlight clear CursorLine
-highlight CursorLine ctermbg=240 guibg=Grey40
-highlight CursorColumn ctermbg=240
+highlight CursorLine ctermbg=16 guibg=Grey40
+highlight CursorColumn ctermbg=16
 
 " Have the mouse work (but allow terminal mouse when in command prompt)
 set mouse=nvi
