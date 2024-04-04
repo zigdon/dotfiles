@@ -25,6 +25,7 @@ set ruler cursorline cursorcolumn
 highlight clear CursorLine
 highlight CursorLine ctermbg=16 guibg=Grey40
 highlight CursorColumn ctermbg=16
+highlight SpellBad ctermbg=3
 
 " Have the mouse work (but allow terminal mouse when in command prompt)
 set mouse=nvi
