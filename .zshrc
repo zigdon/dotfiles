@@ -116,7 +116,11 @@ vcs_info_wrapper() {
 }
 
 # right-side prompt shows [[git-branch] /current/path]
-RPROMPT='[$(vcs_info_wrapper)${YELLOW}%d${NORMAL}]'
+function get_rprompt () {
+  echo -n "$(vcs_info_wrapper)"
+  echo -n "${YELLOW}%d${NORMAL}"
+}
+RPROMPT='[$(get_rprompt_dir)]'
 
 # enable fzf completion
 if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
