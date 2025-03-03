@@ -1,0 +1,25 @@
+[shell]
+  program = "/usr/bin/zsh"
+  args = ["--login"]
+
+[[hints.enabled]]
+  regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:|go/|b/|ag/|pa/|aosp/|cl/)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
+  command = "/home/zigdon/bin/xdg-open-gurl.sh"
+  post_processing = true
+  mouse.enabled=true
+  binding= { key="U", mods="Control|Shift" }
+
+[window]
+  startup_mode="Maximized"
+  opacity=1
+
+[selection]
+  save_to_clipboard = true
+
+[mouse]
+  bindings = [
+    { mouse = "Right", mods = "None", action = "Paste" },
+  ]
+
+[debug]
+  print_events = false
