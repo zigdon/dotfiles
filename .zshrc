@@ -120,7 +120,7 @@ function get_rprompt () {
   echo -n "$(vcs_info_wrapper)"
   echo -n "${YELLOW}%d${NORMAL}"
 }
-RPROMPT='[$(get_rprompt_dir)]'
+RPROMPT='[$(get_rprompt)]'
 
 # enable fzf completion
 if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
