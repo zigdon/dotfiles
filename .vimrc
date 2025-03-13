@@ -17,15 +17,9 @@ set t_Co=256
 
 " Color scheme
 set bg=dark
+colorscheme lunaperche
 " Override constants, because contrast is nice
 highlight Constant ctermfg=LightRed
-
-" Highlight the cursor
-set ruler cursorline cursorcolumn
-highlight clear CursorLine
-highlight CursorLine ctermbg=16 guibg=Grey40
-highlight CursorColumn ctermbg=16
-highlight SpellBad ctermbg=3
 
 " Have the mouse work (but allow terminal mouse when in command prompt)
 set mouse=nvi
@@ -51,8 +45,8 @@ set foldmethod=indent
 set foldcolumn=5
 set modeline
 
-" Experiment with relative numbers
-set rnu
+" Show line numbers
+set number
 
 " Ignore compiled files when completing paths
 set wildignore=*.o,*~,*.pyc,*.pyo,*.class,*.hi
@@ -163,5 +157,15 @@ if !exists("autocommands_loaded")
   let autocommands_loaded = 1
 endif
 
-" Enabling syntax as the last thing, for Reasons
+" Enabling syntax as the last thing, for Reasons, but update the colors
+" afterwards
 syntax on
+
+" Highlight the cursor
+set ruler cursorline cursorcolumn
+highlight clear CursorLine
+highlight CursorLine ctermbg=16
+highlight CursorColumn term=bold ctermbg=black
+highlight SpellBad ctermbg=0
+highlight link LiteralTab NONE
+
