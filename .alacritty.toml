@@ -10,7 +10,6 @@
   binding= { key="U", mods="Control|Shift" }
 
 [window]
-  startup_mode="Maximized"
   opacity=1
 
 [selection]
