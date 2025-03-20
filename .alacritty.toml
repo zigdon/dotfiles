@@ -3,8 +3,8 @@
   args = ["--login"]
 
 [[hints.enabled]]
-  regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:|go/|b/|ag/|pa/|aosp/|cl/)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
-  command = "/home/zigdon/bin/xdg-open-gurl.sh"
+  regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:|[^a-zA-Z]go/|[^a-zA-Z]b/|[^a-zA-Z]cl/)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
+  command = "open"
   post_processing = true
   mouse.enabled=true
   binding= { key="U", mods="Control|Shift" }
