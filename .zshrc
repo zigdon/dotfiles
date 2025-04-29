@@ -12,6 +12,7 @@ bindkey "\eOC" forward-word             # right-arrow
 bindkey "\e[1;5D" backward-char         # ctrl-left-arrow
 bindkey "\e[1;5C" forward-char          # ctrl-right-arrow
 bindkey  "^[[H"   beginning-of-line     # Home
+
 bindkey  "^[[F"   end-of-line           # End
 bindkey "\e[5~" history-search-backward # up-arrow
 bindkey "\e[6~" history-search-forward  # down-arrow
@@ -133,9 +134,15 @@ function rand () { A=($*); let "R=$RANDOM % $#A"; echo $A[R+1] }
 
 # enable fzf for history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# cloned from git@github.com:unixorn/fzf-zsh-plugin.git
 if [[ -f ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh ]]; then
   source ~/.zsh/git/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
+# cloned from git@github.com:zdharma-continuum/fast-syntax-highlighting.git
+if [[ -f ~/.zsh/git/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+  source ~/.zsh/git/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 fi
 
 # start typing + [Up-Arrow] - fuzzy find history forward
