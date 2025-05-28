@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
   program = "/usr/bin/zsh"
   args = ["--login"]
 
@@ -22,3 +22,5 @@
 
 [debug]
   print_events = false
+
+[terminal]
