@@ -3,7 +3,7 @@
   args = ["--login"]
 
 [[hints.enabled]]
-  regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:|[^0-9a-zA-Z]go/|[^0-9a-zA-Z]b/|[^0-9a-zA-Z]cl/)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
+  regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:|[^0-9a-zA-Z]go/|[^0-9a-zA-Z]b/[1-9]|[^0-9a-zA-Z]cl/)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
   command = "open"
   post_processing = true
   mouse.enabled=true
